@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дегустатор майонеза «НЕ ШТУРМ!» // Тактический портал BRM5</title>
+    <title>Анкета рекрута // «НЕ ШТУРМ!» // BRM5</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -29,6 +29,7 @@
             font-family: 'JetBrains Mono', monospace;
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         #tactical-bg {
             position: fixed; top: 0; left: 0;
@@ -74,8 +75,9 @@
             padding: 4px 10px; font-size: 0.78rem; color: var(--text);
         }
         .user-pill img { width: 20px; height: 20px; border-radius: 50%; }
+
         header {
-            padding: 90px 20px 70px; text-align: center;
+            padding: 70px 20px 50px; text-align: center;
             border-bottom: 1px solid var(--border);
             background: radial-gradient(circle at center, rgba(130, 163, 102, 0.08) 0%, transparent 70%);
         }
@@ -85,75 +87,27 @@
             font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
         }
         h1 {
-            font-family: 'Oswald', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 5vw, 3.4rem);
             text-transform: uppercase; letter-spacing: 3px; line-height: 1.1; margin-bottom: 15px;
         }
         h1 span { color: var(--olive); }
-        .hero-desc { max-width: 720px; margin: 0 auto 35px; color: var(--muted); font-size: 0.95rem; }
-        .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn {
-            background: var(--olive); color: #0a0c0b; padding: 14px 28px;
-            font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
-            border: 1px solid var(--olive); cursor: pointer; transition: 0.2s;
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-        }
-        .btn:hover { background: #96ba77; box-shadow: 0 0 20px rgba(130, 163, 102, 0.4); }
-        .btn-discord { background: var(--discord); border-color: var(--discord); color: #fff; }
-        .btn-discord:hover { background: var(--discord-hover); box-shadow: 0 0 20px rgba(88, 101, 242, 0.45); }
-        .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
-        .btn-ghost:hover { border-color: var(--olive); color: var(--olive); background: var(--olive-dim); box-shadow: none; }
-        .container { max-width: 1150px; margin: 0 auto; padding: 70px 20px; }
+        .hero-desc { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: 0.92rem; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
         .section-header {
             display: flex; align-items: center; justify-content: space-between;
-            border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 35px;
+            border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 30px;
             flex-wrap: wrap; gap: 10px;
         }
-        .section-header h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .section-header h2 { font-family: 'Oswald', sans-serif; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1.5px; }
         .section-code { color: var(--olive); font-size: 0.8rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; }
-        .tac-card { background: var(--bg-panel); border: 1px solid var(--border); padding: 25px; position: relative; }
-        .tac-card::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--olive); }
-        .tac-card h3 { font-family: 'Oswald', sans-serif; color: var(--olive); font-size: 1.25rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
-        .tac-card p { font-size: 0.88rem; color: var(--muted); }
-        .radio-intercept {
-            background: var(--bg-card); border: 1px solid var(--border); padding: 30px; margin-top: 40px;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-        }
-        .radio-label { color: var(--amber); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        #excuse-screen { font-size: 1.1rem; min-height: 60px; display: flex; align-items: center; justify-content: center; max-width: 800px; margin-bottom: 20px; color: var(--text); transition: opacity 0.15s; }
-        .tabs { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .tab-btn {
-            background: var(--bg-card); border: 1px solid var(--border); color: var(--muted);
-            padding: 10px 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; cursor: pointer; transition: 0.2s;
-        }
-        .tab-btn.active, .tab-btn:hover { border-color: var(--olive); color: var(--olive); background: var(--olive-dim); }
-        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
-        .rank-item { background: var(--bg-panel); border: 1px solid var(--border); padding: 18px; border-left: 3px solid var(--olive); }
-        .rank-code { font-size: 0.75rem; font-weight: bold; }
-        .rank-title { font-family: 'Oswald', sans-serif; font-size: 1.15rem; color: var(--text); margin: 4px 0 8px; text-transform: uppercase; }
-        .rank-desc { font-size: 0.82rem; color: var(--muted); }
-        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .gallery-card { background: var(--bg-card); border: 1px solid var(--border); cursor: pointer; transition: 0.2s; overflow: hidden; }
-        .gallery-card:hover { border-color: var(--olive); transform: translateY(-3px); }
-        .gallery-card img { width: 100%; height: 210px; object-fit: cover; display: block; filter: contrast(108%) saturate(85%); }
-        .media-info { padding: 15px; font-size: 0.85rem; color: var(--muted); }
-        .media-info strong { color: var(--text); display: block; margin-bottom: 4px; }
-        .video-box { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
-        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        #lightbox {
-            display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
-            z-index: 999; justify-content: center; align-items: center; padding: 20px; flex-direction: column;
-        }
-        #lightbox img { max-width: 90%; max-height: 80vh; border: 2px solid var(--olive); }
-        #lightbox-caption { margin-top: 15px; color: var(--text); text-align: center; }
 
         /* Карточка пропуска рекрута (Discord OAuth2) */
         .pass-card {
             background: linear-gradient(135deg, #141917 0%, #0d100e 100%);
             border: 1px solid var(--olive);
-            padding: 25px;
-            margin-bottom: 30px;
+            padding: 22px;
+            margin-bottom: 25px;
             display: none;
             align-items: center;
             justify-content: space-between;
@@ -163,13 +117,13 @@
         }
         .pass-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
         .pass-avatar {
-            width: 76px; height: 76px; border: 2px solid var(--olive);
+            width: 72px; height: 72px; border: 2px solid var(--olive);
             object-fit: cover; background: #0a0c0b;
         }
-        .pass-meta { font-size: 0.82rem; color: var(--muted); }
-        .pass-name { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
+        .pass-meta { font-size: 0.78rem; color: var(--muted); }
+        .pass-name { font-family: 'Oswald', sans-serif; font-size: 1.3rem; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
         .badge-guild {
-            display: inline-block; padding: 3px 10px; font-size: 0.75rem; margin-top: 6px; font-weight: bold;
+            display: inline-block; padding: 3px 10px; font-size: 0.72rem; margin-top: 6px; font-weight: bold;
         }
         .guild-yes { background: rgba(130, 163, 102, 0.2); border: 1px solid var(--olive); color: var(--olive); }
         .guild-no { background: rgba(212, 155, 56, 0.15); border: 1px solid var(--amber); color: var(--amber); }
@@ -178,24 +132,71 @@
             background: var(--bg-panel); border: 1px dashed var(--discord);
             padding: 40px 25px; text-align: center; margin-bottom: 25px;
         }
-        .auth-gate h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 10px; }
-        .auth-gate p { color: var(--muted); font-size: 0.9rem; max-width: 600px; margin: 0 auto 25px; }
+        .auth-gate h3 { font-family: 'Oswald', sans-serif; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 10px; }
+        .auth-gate p { color: var(--muted); font-size: 0.88rem; max-width: 600px; margin: 0 auto 22px; }
+
+        .btn {
+            background: var(--olive); color: #0a0c0b; padding: 13px 26px;
+            font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
+            border: 1px solid var(--olive); cursor: pointer; transition: 0.2s;
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn:hover { background: #96ba77; box-shadow: 0 0 20px rgba(130, 163, 102, 0.4); }
+        .btn-discord { background: var(--discord); border-color: var(--discord); color: #fff; }
+        .btn-discord:hover { background: var(--discord-hover); box-shadow: 0 0 20px rgba(88, 101, 242, 0.45); }
+        .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-ghost:hover { border-color: var(--olive); color: var(--olive); background: var(--olive-dim); box-shadow: none; }
 
         .form-wrapper { background: var(--bg-panel); border: 1px solid var(--border); padding: 35px; }
         .form-wrapper.locked { opacity: 0.45; pointer-events: none; filter: grayscale(60%); }
+
+        /* Разделы анкеты IC / OOC */
+        .form-section { margin-bottom: 40px; }
+        .form-section:last-of-type { margin-bottom: 25px; }
+        .form-section-title {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 8px; flex-wrap: wrap;
+        }
+        .form-section-badge {
+            font-family: 'Oswald', sans-serif; font-size: 0.9rem;
+            padding: 4px 12px; letter-spacing: 1.5px; font-weight: 700;
+        }
+        .badge-ic { background: rgba(130, 163, 102, 0.18); border: 1px solid var(--olive); color: var(--olive); }
+        .badge-ooc { background: rgba(88, 101, 242, 0.18); border: 1px solid var(--discord); color: #8b96ff; }
+        .form-section-title h3 {
+            font-family: 'Oswald', sans-serif; font-size: 1.4rem;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .form-section-desc {
+            color: var(--muted); font-size: 0.82rem; margin-bottom: 25px;
+            border-left: 2px solid var(--border); padding-left: 14px;
+        }
+        .badge-ic + h3 { color: var(--olive); }
+        .badge-ooc + h3 { color: #8b96ff; }
+
         .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--olive); margin-bottom: 8px; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--olive); margin-bottom: 8px; letter-spacing: 0.5px; }
+        label .req { color: var(--danger); margin-left: 2px; }
         input, select, textarea {
             width: 100%; background: #0b0d0c; border: 1px solid var(--border); color: var(--text);
-            padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+            padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem;
         }
         input[readonly] { background: #121614; color: var(--olive); border-color: #2f3b34; cursor: not-allowed; }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--olive); }
-        #form-feedback { margin-top: 20px; padding: 15px; display: none; font-size: 0.9rem; text-align: center; }
+        textarea { resize: vertical; min-height: 90px; }
+        .hint { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 5px; font-style: italic; }
+
+        .checkbox-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+        .checkbox-row input[type="checkbox"] { width: auto; margin-top: 4px; accent-color: var(--olive); cursor: pointer; }
+        .checkbox-row label { text-transform: none; font-size: 0.82rem; color: var(--text); cursor: pointer; }
+
+        #form-feedback { margin-top: 20px; padding: 15px; display: none; font-size: 0.88rem; text-align: center; }
         .msg-ok { background: rgba(130, 163, 102, 0.15); border: 1px solid var(--olive); color: var(--olive); }
         .msg-err { background: rgba(207, 70, 70, 0.15); border: 1px solid var(--danger); color: var(--danger); }
-        footer { border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--muted); font-size: 0.8rem; background: #080a09; }
+
+        footer { border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--muted); font-size: 0.78rem; background: #080a09; }
     </style>
 </head>
 <body>
@@ -204,14 +205,11 @@
     <div class="hud-bar">
         <div class="hud-status">
             <span class="pulse-dot"></span>
-            <span>СТАТУС ОПЕРАЦИИ: <strong>ОТМЕНЕНА (ПЕРЕКУР)</strong></span>
+            <span>ОТДЕЛ КАДРОВ // ПРИЁМ ЗАЯВОК</span>
             <span style="color: var(--muted);">| СЕКТОР: РОНГРАД (ТЫЛ)</span>
         </div>
         <nav class="hud-nav">
-            <a href="#about">Доктрина</a>
-            <a href="#ranks">Табель о рангах</a>
-            <a href="#media">Хроники</a>
-            <a href="#recruit" style="color: var(--olive); font-weight: bold;">[ Подать рапорт ]</a>
+            <a href="#form-top">Анкета</a>
             <div id="hud-auth-area">
                 <button class="btn-discord-sm" onclick="loginWithDiscord()">Войти через Discord</button>
             </div>
@@ -219,116 +217,16 @@
     </div>
 
     <header>
-        <div class="tag-top">Blackhawk Rescue Mission 5 // Официальный штаб</div>
-        <h1>Дегустатор майонеза<br><span>«НЕ ШТУРМ!»</span></h1>
+        <div class="tag-top">Blackhawk Rescue Mission 5 // Анкета рекрута</div>
+        <h1>Заявка на вступление<br><span>«НЕ ШТУРМ!»</span></h1>
         <p class="hero-desc">
-            Элитное соединение отрицательного наступления, глубокого тылового наблюдения и бережного расходования боекомплекта. Мы не ходим в атаку — мы грамотно обосновываем, почему туда идти не надо.
+            Официальный бланк для кандидатов в подразделение. Анкета разделена на две части: <b style="color: var(--olive);">IC</b> — данные от лица персонажа, и <b style="color: #8b96ff;">OOC</b> — реальные сведения о вас как об игроке. Заполняйте внимательно — от этого зависит решение офицеров.
         </p>
-        <div class="hero-actions">
-            <a href="#recruit" class="btn">Подать заявку в подразделение</a>
-            <a href="#ranks" class="btn btn-ghost">Изучить иерархию</a>
-        </div>
     </header>
 
-    <section id="about" class="container">
+    <section id="form-top" class="container">
         <div class="section-header">
-            <h2>01 // Доктрина бездействия</h2>
-            <span class="section-code">УСТАВ // РЕД. 2026</span>
-        </div>
-
-        <div class="grid-3">
-            <div class="tac-card">
-                <h3>Тактический застой</h3>
-                <p>Пока соседние отряды героически гибнут в бункере, мы занимаем стратегическую высоту в 3 км от боя и авторитетно осуждаем их ошибки в бинокль.</p>
-            </div>
-            <div class="tac-card">
-                <h3>Культ Провансаля</h3>
-                <p>Ни один вертолет не оторвется от земли, пока не списана солярка, не подшиты воротнички и не проверен запас майонеза в разгрузках личного состава.</p>
-            </div>
-            <div class="tac-card">
-                <h3>Нулевые потери</h3>
-                <p>Невозможно потерять бойца или технику, если не выезжать за пределы бетонного забора на спавне. Эффективность — 100%.</p>
-            </div>
-        </div>
-
-        <div class="radio-intercept">
-            <div class="radio-label">[ Перехват радиоэфира // Частота 148.80 МГц ]</div>
-            <div id="excuse-screen">«Вижу врага — обхожу стороной. Слышу выстрелы — еду домой.»</div>
-            <button class="btn btn-ghost" onclick="generateExcuse()">Запросить новую отмазку из штаба</button>
-        </div>
-    </section>
-
-    <section id="ranks" class="container">
-        <div class="section-header">
-            <h2>02 // Штатное расписание</h2>
-            <span class="section-code">АКТУАЛЬНЫЕ РОЛИ DISCORD</span>
-        </div>
-
-        <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('mayo', this)">Дегустаторы майонеза</button>
-            <button class="tab-btn" onclick="switchTab('bureau', this)">Мастера Имитации Бумажной Деятельности</button>
-            <button class="tab-btn" onclick="switchTab('elite', this)">Элита тылового фронта</button>
-            <button class="tab-btn" onclick="switchTab('special', this)">Специальные роли</button>
-        </div>
-
-        <div class="rank-grid" id="ranks-container"></div>
-    </section>
-
-    <section id="media" class="container">
-        <div class="section-header">
-            <h2>03 // Архив полевых уклонений</h2>
-            <span class="section-code">ФОТО И ВИДЕОФИКСАЦИЯ</span>
-        </div>
-
-        <div class="media-grid">
-            <div class="gallery-card" onclick="openLightbox(this)">
-                <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80" alt="Оборона КПП">
-                <div class="media-info">
-                    <strong>Операция «Тихий Сон»</strong>
-                    Героическая оборона КПП на спавне в течение 3 часов. Враг не прошел (он туда и не шел).
-                </div>
-            </div>
-            <div class="gallery-card" onclick="openLightbox(this)">
-                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=900&q=80" alt="Наблюдение">
-                <div class="media-info">
-                    <strong>Разведка чужим боем</strong>
-                    Наблюдаем в 12x прицел с соседней горы, как рандомы штурмуют Сограду.
-                </div>
-            </div>
-            <div class="gallery-card" onclick="openLightbox(this)">
-                <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=80" alt="Привал">
-                <div class="media-info">
-                    <strong>Бронетанковый привал</strong>
-                    Страйкер успешно засажен в канаву у базы. Экипаж списал солярку и ушел в бункер.
-                </div>
-            </div>
-        </div>
-
-        <div class="media-grid" style="margin-top: 25px;">
-            <div class="gallery-card" style="cursor: default;">
-                <div class="video-box">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                </div>
-                <div class="media-info">
-                    <strong>Учебное пособие №1</strong>
-                    Как грамотно вызвать эвакуацию еще до момента высадки из вертолета.
-                </div>
-            </div>
-            <div class="gallery-card" style="cursor: default;">
-                <div class="video-box">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                </div>
-                <div class="media-info">
-                    <strong>Хроники «Пятисотого в законе»</strong>
-                    Запись с нагрудной камеры во время тактического отступления в столовую.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="recruit" class="container">
-        <div class="section-header">
-            <h2>04 // Отдел кадров (Заявка на вступление)</h2>
+            <h2>04 // Отдел кадров</h2>
             <span class="section-code">DISCORD OAUTH2 + FORUM API</span>
         </div>
 
@@ -359,70 +257,187 @@
 
         <div class="form-wrapper locked" id="recruit-form-wrapper">
             <form id="discord-forum-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Аккаунт Discord (Подтвержден)</label>
-                        <input type="text" id="f-discord" readonly required placeholder="Выполните вход через Discord">
+
+                <!-- ================= IC ЧАСТЬ ================= -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <span class="form-section-badge badge-ic">IC</span>
+                        <h3>In Character — от лица персонажа</h3>
                     </div>
+                    <p class="form-section-desc">
+                        Заполните эти поля от лица вашего персонажа — бойца, который служит в подразделении «НЕ ШТУРМ!». Пишите так, как будто это ваш герой, а не вы.
+                    </p>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Позывной персонажа <span class="req">*</span></label>
+                            <input type="text" id="f-callsign" required placeholder="Например: «Сухомятка-1» или «Белый-7»">
+                        </div>
+                        <div class="form-group">
+                            <label>Имя персонажа (полное) <span class="req">*</span></label>
+                            <input type="text" id="f-charname" required placeholder="Например: Иван «Тихий» Смирнов">
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label>Никнейм в Roblox</label>
-                        <input type="text" id="f-roblox" required placeholder="Ваш основной аккаунт в Roblox">
+                        <label>Биография персонажа <span class="req">*</span></label>
+                        <textarea id="f-bio" rows="4" required placeholder="Откуда прибыл, где служил раньше, почему оказался в тыловом подразделении..."></textarea>
+                        <span class="hint">Минимум 2-3 предложения. Офицерам важно понять, кто ваш персонаж и как он попал к нам.</span>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Специализация персонажа <span class="req">*</span></label>
+                            <select id="f-role" required>
+                                <option value="Дегустатор майонеза (Пехота / Базовый состав)">Дегустатор майонеза (Пехота / Базовый состав)</option>
+                                <option value="Ас взлетной полосы (Авиация / Транспорт)">Ас взлетной полосы (Авиация / Транспорт)</option>
+                                <option value="Снайпер-Натуралист (Разведка / Наблюдение)">Снайпер-Натуралист (Разведка / Наблюдение)</option>
+                                <option value="Медик-Патологоанатом (Медицинское обеспечение)">Медик-Патологоанатом (Медицинское обеспечение)</option>
+                                <option value="Инженер Синей Изоленты (Бронетехника / Логистика)">Инженер Синей Изоленты (Бронетехника / Логистика)</option>
+                                <option value="Связист-Глушилка (Координация / Связь)">Связист-Глушилка (Координация / Связь)</option>
+                                <option value="Мастер Отрицательного Десанта (Инструктор)">Мастер Отрицательного Десанта (Инструктор)</option>
+                                <option value="Начальник Паники (Раннее предупреждение)">Начальник Паники (Раннее предупреждение)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Предпочитаемая техника / вооружение <span class="req">*</span></label>
+                            <input type="text" id="f-equipment" required placeholder="Например: Страйкер, M14, дымовые гранаты">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Отношение персонажа к доктрине «НЕ ШТУРМ!» <span class="req">*</span></label>
+                        <textarea id="f-doctrine" rows="3" required placeholder="Почему ваш персонаж разделяет идею тактического застоя и бережного расходования боекомплекта?"></textarea>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Опыт службы в BRM5 (уровень / часы) <span class="req">*</span></label>
+                            <input type="text" id="f-exp" required placeholder="Например: 55 уровень, 120 часов">
+                        </div>
+                        <div class="form-group">
+                            <label>Знание устава подразделения (самооценка) <span class="req">*</span></label>
+                            <select id="f-charter" required>
+                                <option value="Не знаком, готов изучить">Не знаком, готов изучить</option>
+                                <option value="Частично знаком">Частично знаком</option>
+                                <option value="Хорошо знаю">Хорошо знаю</option>
+                                <option value="Знаю наизусть">Знаю наизусть</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Возраст и часовой пояс (от МСК)</label>
-                        <input type="text" id="f-age" required placeholder="Например: 17 лет, МСК+0">
+                <!-- ================= OOC ЧАСТЬ ================= -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <span class="form-section-badge badge-ooc">OOC</span>
+                        <h3>Out Of Character — реальные данные</h3>
                     </div>
+                    <p class="form-section-desc">
+                        Эти поля описывают вас как реального игрока. Данные видны только офицерам и используются для связи и распределения по отрядам.
+                    </p>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Аккаунт Discord (подтверждён) <span class="req">*</span></label>
+                            <input type="text" id="f-discord" readonly required placeholder="Выполните вход через Discord">
+                        </div>
+                        <div class="form-group">
+                            <label>Никнейм в Roblox <span class="req">*</span></label>
+                            <input type="text" id="f-roblox" required placeholder="Ваш основной аккаунт в Roblox">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Возраст <span class="req">*</span></label>
+                            <input type="text" id="f-age" required placeholder="Например: 17 лет">
+                        </div>
+                        <div class="form-group">
+                            <label>Часовой пояс (от МСК) <span class="req">*</span></label>
+                            <select id="f-timezone" required>
+                                <option value="МСК-2">МСК-2</option>
+                                <option value="МСК-1">МСК-1</option>
+                                <option value="МСК+0">МСК+0</option>
+                                <option value="МСК+1">МСК+1</option>
+                                <option value="МСК+2">МСК+2</option>
+                                <option value="МСК+3">МСК+3</option>
+                                <option value="МСК+4">МСК+4</option>
+                                <option value="МСК+5">МСК+5</option>
+                                <option value="МСК+6">МСК+6</option>
+                                <option value="МСК+7">МСК+7</option>
+                                <option value="Другой">Другой (уточню в комментарии)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Опыт в других сообществах / фракциях <span class="req">*</span></label>
+                            <textarea id="f-community-exp" rows="3" required placeholder="В каких сообществах BRM5 или других играх вы состояли? Занимали ли должности?"></textarea>
+                            <span class="hint">Если опыта нет — так и напишите, это не минус.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Онлайн-активность <span class="req">*</span></label>
+                            <select id="f-activity" required>
+                                <option value="Ежедневно, 4+ часов">Ежедневно, 4+ часов</option>
+                                <option value="Ежедневно, 1-3 часа">Ежедневно, 1-3 часа</option>
+                                <option value="Несколько раз в неделю">Несколько раз в неделю</option>
+                                <option value="Только по выходным">Только по выходным</option>
+                                <option value="Нерегулярно">Нерегулярно</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Наличие исправного микрофона <span class="req">*</span></label>
+                            <select id="f-mic" required>
+                                <option value="Да, микрофон есть и работает">Да, микрофон есть и работает</option>
+                                <option value="Микрофон есть, но говорю редко">Микрофон есть, но говорю редко</option>
+                                <option value="Нет, только чат">Нет, только чат</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Готовность к дисциплине и РП <span class="req">*</span></label>
+                            <select id="f-rp-ready" required>
+                                <option value="Полностью готов(а)">Полностью готов(а)</option>
+                                <option value="Готов(а) частично, нужен опыт">Готов(а) частично, нужен опыт</option>
+                                <option value="Затрудняюсь ответить">Затрудняюсь ответить</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label>Уровень / Опыт в BRM5</label>
-                        <input type="text" id="f-exp" required placeholder="Например: 55 уровень, 120 часов">
+                        <label>Причина вступления в «НЕ ШТУРМ!» (реальная) <span class="req">*</span></label>
+                        <textarea id="f-reason" rows="4" required placeholder="Расскажите, как давно играете в BRM5, какой стиль игры предпочитаете и почему решили присоединиться именно к нам..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дополнительные комментарии</label>
+                        <textarea id="f-comments" rows="2" placeholder="Всё, что не вошло в анкету: пожелания, вопросы к офицерам, особые обстоятельства..."></textarea>
+                    </div>
+
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="f-agree-rules" required>
+                        <label for="f-agree-rules">Я ознакомлен(а) с уставом подразделения «НЕ ШТУРМ!» и обязуюсь его соблюдать. <span class="req" style="color: var(--danger);">*</span></label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="f-agree-data" required>
+                        <label for="f-agree-data">Я даю согласие на обработку указанных данных офицерами подразделения для рассмотрения заявки. <span class="req" style="color: var(--danger);">*</span></label>
                     </div>
                 </div>
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Предпочитаемая специализация / Направление</label>
-                        <select id="f-role">
-                            <option value="Дегустатор майонеза (Пехота / Базовый состав)">Дегустатор майонеза (Пехота / Базовый состав)</option>
-                            <option value="Ас взлетной полосы (Авиация / Транспорт)">Ас взлетной полосы (Авиация / Транспорт)</option>
-                            <option value="Снайпер-Натуралист (Разведка / Наблюдение)">Снайпер-Натуралист (Разведка / Наблюдение)</option>
-                            <option value="Медик-Патологоанатом (Медицинское обеспечение)">Медик-Патологоанатом (Медицинское обеспечение)</option>
-                            <option value="Инженер Синей Изоленты (Бронетехника / Логистика)">Инженер Синей Изоленты (Бронетехника / Логистика)</option>
-                            <option value="Связист-Глушилка (Координация / Связь)">Связист-Глушилка (Координация / Связь)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Наличие исправного микрофона</label>
-                        <select id="f-mic">
-                            <option value="Да, микрофон есть и работает">Да, микрофон есть и работает</option>
-                            <option value="Микрофон есть, но говорю редко">Микрофон есть, но говорю редко</option>
-                            <option value="Нет, только чат">Нет, только чат</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Кратко о себе и причина вступления в «НЕ ШТУРМ!»</label>
-                    <textarea id="f-reason" rows="4" required placeholder="Расскажите, как давно играете в BRM5, какой стиль игры предпочитаете и почему решили присоединиться к нам..."></textarea>
-                </div>
-
-                <button type="submit" class="btn" id="submit-btn" style="width: 100%;">Отправить заявку на рассмотрение</button>
+                <button type="submit" class="btn" id="submit-btn" style="width: 100%;">Отправить анкету на рассмотрение</button>
             </form>
             <div id="form-feedback"></div>
         </div>
     </section>
 
     <footer>
-        ДЕГУСТАТОР МАЙОНЕЗА «НЕ ШТУРМ!» // HOSTED ON GITHUB PAGES<br>
+        ДЕГУСТАТОР МАЙОНЕЗА «НЕ ШТУРМ!» // ОТДЕЛ КАДРОВ<br>
         Игровое сообщество Blackhawk Rescue Mission 5. Все совпадения случайны.
     </footer>
-
-    <div id="lightbox" onclick="this.style.display='none'">
-        <img id="lightbox-img" src="" alt="">
-        <div id="lightbox-caption"></div>
-    </div>
 
     <script>
         // =========================================================================
@@ -461,7 +476,7 @@
 
             if (accessToken) {
                 localStorage.setItem("dmnsh_discord_token", accessToken);
-                window.history.replaceState(null, null, window.location.pathname + "#recruit");
+                window.history.replaceState(null, null, window.location.pathname + "#form-top");
             } else {
                 accessToken = localStorage.getItem("dmnsh_discord_token");
             }
@@ -484,7 +499,6 @@
 
                 currentDiscordUser = await userRes.json();
 
-                // Проверяем, состоит ли кандидат на сервере
                 try {
                     const guildsRes = await fetch("https://discord.com/api/users/@me/guilds", {
                         headers: { Authorization: `Bearer ${accessToken}` }
@@ -560,93 +574,7 @@
         }
 
         // =========================================================================
-        // БАЗА ЗВАНИЙ И РОЛЕЙ ПО СКРИНШОТАМ
-        // =========================================================================
-        const ranksData = {
-            mayo: [
-                { code: "ДЕГУСТАТОРЫ МАЙОНЕЗА // E-1", color: "#57F287", title: "Сухомятка", desc: "Начальное звание рекрута. Проходит базовый инструктаж и знакомится с расположением столовой." },
-                { code: "ДЕГУСТАТОРЫ МАЙОНЕЗА // E-2", color: "#3BA55C", title: "Ложкомой", desc: "Освоившийся боец базового состава. Допущен к самостоятельным выездам в составе отделения." },
-                { code: "ДЕГУСТАТОРЫ МАЙОНЕЗА // E-3", color: "#1F8B4C", title: "Рядовой Первого Пайка", desc: "Опытный участник рейдов. Уверенно ориентируется на местности и следит за сохранностью припасов." },
-                { code: "ДЕГУСТАТОРЫ МАЙОНЕЗА // E-4", color: "#2ECC71", title: "Младший Смазчик", desc: "Старший среди рядовых. Помогает новичкам с экипировкой и координирует действия в тылу." },
-                { code: "ДЕГУСТАТОРЫ МАЙОНЕЗА // SPEC", color: "#5865F2", title: "Специалист По Мазику", desc: "Высшая ступень рядового состава. Эксперт по тыловому обеспечению и грамотному распределению ресурсов." }
-            ],
-            bureau: [
-                { code: "МИБД // O-1", color: "#3498DB", title: "Младший Стрелочник", desc: "Начинающий младший офицер. Отвечает за базовую координацию малых групп и оформление отчетов." },
-                { code: "МИБД // O-2", color: "#2980B9", title: "Старший Пиджак", desc: "Офицер штабного звена. Контролирует соблюдение регламента выездов и подготовку личного состава." },
-                { code: "МИБД // O-2+", color: "#1ABC9C", title: "Ротный Зампоперекур", desc: "Заместитель командира роты по морально-психологическому состоянию и своевременному отдыху бойцов." },
-                { code: "МИБД // O-3", color: "#00B0F4", title: "Капитан-Картограф", desc: "Командир ротного звена. Планирует маршруты передвижения в обход основных очагов напряженности." }
-            ],
-            elite: [
-                { code: "ЭЛИТА ТЫЛОВОГО ФРОНТА // O-4", color: "#E67E22", title: "Майор-Перекур", desc: "Старший офицер штаба. Курирует работу младшего офицерского состава и утверждает графики привалов." },
-                { code: "ЭЛИТА ТЫЛОВОГО ФРОНТА // O-5", color: "#D35400", title: "Подполковник-Бинокль", desc: "Специалист по дистанционному наблюдению и стратегическому анализу действий союзных подразделений." },
-                { code: "ЭЛИТА ТЫЛОВОГО ФРОНТА // O-6", color: "#F1C40F", title: "Полковник-Запретитель", desc: "Высший офицерский чин. Утверждает директивы, регламенты безопасности и кадровые назначения." }
-            ],
-            special: [
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#E91E63", title: "Пятисотый в законе", desc: "Официальный статус специалиста по своевременному отказу от неоправданного риска." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#9B59B6", title: "Ас взлетной полосы", desc: "Пилот транспортной и боевой авиации, мастер безопасного маневрирования в районе базы." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#206694", title: "Инженер Синей Изоленты", desc: "Специалист по ремонту, обслуживанию и полевой модификации бронетехники." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#11806A", title: "Снайпер-Натуралист", desc: "Оператор высокоточного вооружения, специализирующийся на длительном наблюдении с возвышенностей." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#AD1457", title: "Оружейный кутюрье", desc: "Эксперт по подбору камуфляжа, тактического снаряжения и тонкой настройке обвесов." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#71368A", title: "Связист-Глушилка", desc: "Обеспечивает бесперебойную радиосвязь и информационную защиту каналов подразделения." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#C27C0E", title: "Сапер-Энтузиаст", desc: "Специалист по инженерной разведке и обнаружению минно-взрывных заграждений." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#A84300", title: "Медик-Патологоанатом", desc: "Полевой медик подразделения, отвечающий за эвакуацию и оказание первой помощи." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#992D22", title: "Мастер Отрицательного Десанта", desc: "Инструктор по воздушно-десантной подготовке и экстремальному покиданию борта." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#607D8B", title: "Водитель-Топограф", desc: "Механик-водитель, способный проложить уникальный маршрут через любую точку карты." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#F39C12", title: "Охотник за Хабаром", desc: "Специалист по сбору трофейного снаряжения и логистическому обеспечению отряда." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#E74C3C", title: "Начальник Паники", desc: "Офицер раннего предупреждения об угрозах на всех направлениях одновременно." },
-                { code: "СПЕЦИАЛЬНАЯ РОЛЬ", color: "#27AE60", title: "Смотрящий за Зеленкой", desc: "Эксперт по маскировке и длительному удержанию позиций в лесной местности." }
-            ]
-        };
-
-        function switchTab(category, btn) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const container = document.getElementById('ranks-container');
-            container.innerHTML = ranksData[category].map(item => `
-                <div class="rank-item" style="border-left-color: ${item.color};">
-                    <div class="rank-code" style="color: ${item.color};">${item.code}</div>
-                    <div class="rank-title">${item.title}</div>
-                    <div class="rank-desc">${item.desc}</div>
-                </div>
-            `).join('');
-        }
-        switchTab('mayo', document.querySelector('.tab-btn'));
-
-        // =========================================================================
-        // ГЕНЕРАТОР ОТМАЗОК
-        // =========================================================================
-        const excusesList = [
-            "«Товарищ командир, у меня прицел запотел от волнения, вести огонь не могу.»",
-            "«Мы не убегаем, мы проводим тактическое выравнивание линии фронта ближе к столовой.»",
-            "«Там в кустах бот с пистолетом, обстановка критическая, запрашиваю эвакуацию.»",
-            "«Не могу идти в атаку, у меня берцы не по уставу зашнурованы.»",
-            "«Патроны на строгом учете до конца месяца, бережем бюджет подразделения.»",
-            "«Прикрываю тыл со спавна. Пока ни один враг сюда не дошел, работаю идеально.»"
-        ];
-
-        function generateExcuse() {
-            const screen = document.getElementById('excuse-screen');
-            const random = excusesList[Math.floor(Math.random() * excusesList.length)];
-            screen.style.opacity = 0;
-            setTimeout(() => {
-                screen.innerText = random;
-                screen.style.opacity = 1;
-            }, 150);
-        }
-
-        // =========================================================================
-        // ЛАЙТБОКС ДЛЯ СКРИНШОТОВ
-        // =========================================================================
-        function openLightbox(card) {
-            const img = card.querySelector('img').src;
-            const caption = card.querySelector('.media-info').innerHTML;
-            document.getElementById('lightbox-img').src = img;
-            document.getElementById('lightbox-caption').innerHTML = caption;
-            document.getElementById('lightbox').style.display = 'flex';
-        }
-
-        // =========================================================================
-        // ОТПРАВКА ЗАЯВКИ НА ФОРУМ DISCORD (СЕРЬЕЗНОЕ ОФОРМЛЕНИЕ + OAUTH2 ДАННЫЕ)
+        // ОТПРАВКА АНКЕТЫ НА ФОРУМ DISCORD
         // =========================================================================
         document.getElementById('discord-forum-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -667,12 +595,26 @@
                 return;
             }
 
+            // IC данные
+            const callsign = document.getElementById('f-callsign').value.trim();
+            const charname = document.getElementById('f-charname').value.trim();
+            const bio = document.getElementById('f-bio').value.trim();
+            const role = document.getElementById('f-role').value;
+            const equipment = document.getElementById('f-equipment').value.trim();
+            const doctrine = document.getElementById('f-doctrine').value.trim();
+            const exp = document.getElementById('f-exp').value.trim();
+            const charter = document.getElementById('f-charter').value;
+
+            // OOC данные
             const roblox = document.getElementById('f-roblox').value.trim();
             const age = document.getElementById('f-age').value.trim();
-            const exp = document.getElementById('f-exp').value.trim();
-            const role = document.getElementById('f-role').value;
+            const timezone = document.getElementById('f-timezone').value;
+            const communityExp = document.getElementById('f-community-exp').value.trim();
+            const activity = document.getElementById('f-activity').value;
             const mic = document.getElementById('f-mic').value;
+            const rpReady = document.getElementById('f-rp-ready').value;
             const reason = document.getElementById('f-reason').value.trim();
+            const comments = document.getElementById('f-comments').value.trim();
 
             const tag = currentDiscordUser.discriminator && currentDiscordUser.discriminator !== "0"
                 ? `${currentDiscordUser.username}#${currentDiscordUser.discriminator}`
@@ -680,39 +622,62 @@
             const avatarUrl = getAvatarUrl(currentDiscordUser);
 
             submitBtn.disabled = true;
-            submitBtn.innerText = "Отправка заявки...";
+            submitBtn.innerText = "Отправка анкеты...";
 
             const payload = {
-                thread_name: `Заявка | ${roblox} (${tag})`,
+                thread_name: `Анкета | ${callsign} / ${roblox} (${tag})`,
                 username: "Отдел кадров | НЕ ШТУРМ!",
                 content: `Поступила новая анкета от <@${currentDiscordUser.id}>`,
                 embeds: [
                     {
-                        title: `Заявка на вступление — ${roblox}`,
+                        title: `📋 Заявка на вступление — ${charname || roblox}`,
+                        description: `**Позывной:** \`${callsign}\`\n**Discord:** <@${currentDiscordUser.id}> (\`${tag}\`)\n**На сервере:** ${isMemberOfGuild ? "✅ Да" : "⚠️ Не обнаружен"}`,
                         color: 3092790,
-                        thumbnail: {
-                            url: avatarUrl
-                        },
+                        thumbnail: { url: avatarUrl },
                         fields: [
                             {
-                                name: "Основные данные",
-                                value: `**Discord:** <@${currentDiscordUser.id}> (\`${tag}\`)
-**Discord ID:** \`${currentDiscordUser.id}\`
-**На сервере:** ${isMemberOfGuild ? "Да" : "Не обнаружен"}
-**Roblox:** \`${roblox}\`
-**Возраст и пояс:** ${age}`,
-                                inline: false
-                            },
-                            {
-                                name: "Игровой профиль (BRM5)",
-                                value: `**Опыт / Уровень:** ${exp}
+                                name: "🎖️ IC — ПЕРСОНАЖ",
+                                value: `**Имя персонажа:** ${charname}
+**Позывной:** ${callsign}
 **Специализация:** ${role}
-**Микрофон:** ${mic}`,
+**Техника / вооружение:** ${equipment}
+**Опыт службы (BRM5):** ${exp}
+**Знание устава:** ${charter}`,
                                 inline: false
                             },
                             {
-                                name: "О себе и мотивация",
-                                value: reason,
+                                name: "📖 Биография персонажа",
+                                value: bio.length > 1000 ? bio.substring(0, 1000) + "..." : bio,
+                                inline: false
+                            },
+                            {
+                                name: "🪖 Отношение к доктрине «НЕ ШТУРМ!»",
+                                value: doctrine.length > 1000 ? doctrine.substring(0, 1000) + "..." : doctrine,
+                                inline: false
+                            },
+                            {
+                                name: "👤 OOC — ИГРОК",
+                                value: `**Roblox:** \`${roblox}\`
+**Возраст:** ${age}
+**Часовой пояс:** ${timezone}
+**Онлайн:** ${activity}
+**Микрофон:** ${mic}
+**Готовность к РП:** ${rpReady}`,
+                                inline: false
+                            },
+                            {
+                                name: "🗂️ Опыт в сообществах",
+                                value: communityExp.length > 1000 ? communityExp.substring(0, 1000) + "..." : communityExp,
+                                inline: false
+                            },
+                            {
+                                name: "💬 Причина вступления",
+                                value: reason.length > 1000 ? reason.substring(0, 1000) + "..." : reason,
+                                inline: false
+                            },
+                            {
+                                name: "📝 Дополнительно",
+                                value: comments || "—",
                                 inline: false
                             }
                         ],
@@ -735,11 +700,11 @@
                     localStorage.setItem('dmnsh_last_apply', Date.now().toString());
                     feedback.style.display = 'block';
                     feedback.className = 'msg-ok';
-                    feedback.innerText = 'Заявка успешно отправлена. Тема с вашей анкетой создана на форуме в Discord, ожидайте ответа офицеров.';
-                    document.getElementById('f-roblox').value = '';
-                    document.getElementById('f-age').value = '';
-                    document.getElementById('f-exp').value = '';
-                    document.getElementById('f-reason').value = '';
+                    feedback.innerText = '✅ Анкета успешно отправлена. Тема создана на форуме в Discord — ожидайте ответа офицеров.';
+                    // Очищаем только пользовательские поля, оставляем Discord
+                    ['f-callsign','f-charname','f-bio','f-equipment','f-doctrine','f-exp','f-roblox','f-age','f-community-exp','f-reason','f-comments'].forEach(id => {
+                        document.getElementById(id).value = '';
+                    });
                 } else {
                     const errData = await response.json().catch(() => ({}));
                     throw new Error(`HTTP ${response.status}: ${errData.message || 'Ошибка при создании темы на форуме'}`);
@@ -747,15 +712,15 @@
             } catch (err) {
                 feedback.style.display = 'block';
                 feedback.className = 'msg-err';
-                feedback.innerText = `Не удалось отправить заявку (${err.message}). Проверьте настройки форума или повторите попытку позже.`;
+                feedback.innerText = `❌ Не удалось отправить анкету (${err.message}). Попробуйте позже или свяжитесь с офицером.`;
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerText = "Отправить заявку на рассмотрение";
+                submitBtn.innerText = "Отправить анкету на рассмотрение";
             }
         });
 
         // =========================================================================
-        // ТАКТИЧЕСКАЯ СЕТКА И РАДАР НА CANVAS
+        // ТАКТИЧЕСКАЯ СЕТКА НА CANVAS
         // =========================================================================
         const canvas = document.getElementById('tactical-bg');
         const ctx = canvas.getContext('2d');
